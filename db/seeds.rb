@@ -17,7 +17,7 @@ start_time = Time.parse("#{date} 09:00:00")
 10.times do |i|
   PotatoPriceTime.create!(
     time: start_time + i.hours,
-    value: rand(100.0..102.0).round(2)
+    value: rand(100.0..101.0).round(2)
   )
 end
 

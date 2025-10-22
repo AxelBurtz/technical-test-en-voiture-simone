@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "potato_price_times/:day", to: "potato_price_times#show"
+    get "best_daily_gain_possible/:day", to: "best_daily_gain_possible#show"
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
