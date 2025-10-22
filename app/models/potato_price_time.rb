@@ -1,0 +1,2 @@
+class PotatoPriceTime < ApplicationRecord
+end
