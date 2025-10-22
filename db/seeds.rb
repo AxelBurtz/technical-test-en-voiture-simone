@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+PotatoPriceTime.destroy_all
+
+date = Date.parse("2025-01-01")
+start_time = Time.parse("#{date} 09:00:00")
+
+10.times do |i|
+  PotatoPriceTime.create!(
+    time: start_time + i.hours,
+    value: rand(100.0..102.0).round(2)
+  )
+end
+
+puts "Seeded #{PotatoPriceTime.count} potato price time records."
