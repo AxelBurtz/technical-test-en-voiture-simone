@@ -1,20 +1,16 @@
 module Api
   class BestDailyGainPossibleController < ApplicationController
+      include DateParsing
+
     def show
       date = parse_date(params[:day])
       return render json: { error: "Invalid date"}, status: :bad_request unless date
 
       best_gain = calculate_best_daily_gain(date)
-      best_gain2 = calculate(date)
-      render json:  [best_gain_possible: best_gain,
-      best_gain_possible2: best_gain2 ]
+      render json:  [best_gain_possible: best_gain]
     end
 
     private
-
-    def parse_date(date)
-      Date.parse(date) rescue nil
-    end
 
     def calculate_best_daily_gain(date)
       prices = PotatoPriceTime.where(time: date.beginning_of_day..date.end_of_day).order(:time).pluck(:value)

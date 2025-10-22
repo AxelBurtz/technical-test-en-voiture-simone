@@ -12,11 +12,20 @@
 PotatoPriceTime.destroy_all
 
 date = Date.parse("2025-01-01")
+date2 = Date.parse("2026-01-01")
 start_time = Time.parse("#{date} 09:00:00")
+start_time2 = Time.parse("#{date2} 09:00:00")
 
 10.times do |i|
   PotatoPriceTime.create!(
     time: start_time + i.hours,
+    value: rand(100.0..101.0).round(2)
+  )
+end
+
+10.times do |i|
+  PotatoPriceTime.create!(
+    time: start_time2 + i.hours,
     value: rand(100.0..101.0).round(2)
   )
 end
